@@ -1,6 +1,7 @@
 # %%
 import pandas as pd
 import numpy as np
+from sklearn.metrics import normalized_mutual_info_score
 from collections import Counter
 from collections import defaultdict
 
@@ -54,8 +55,10 @@ def CLOPE(df, k, r, real_label="missing!"):
                 
     #calculating metric for clustering evaluation
     if real_label != "missing!":
-        purity = Purity(real=table['real_label'].tolist(), pred=table['cluster_label'].tolist())
-        print("purity: ", purity)    
+        real=table['real_label'].tolist()
+        pred=table['cluster_label'].tolist()
+        print("purity: ", Purity(real, pred))
+        print("mutual info score: ", normalized_mutual_info_score(real, pred))   
     
     return table, Clusters
 
