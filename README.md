@@ -9,13 +9,15 @@ Briefly, the CLOPE clustering algorithm is based on the idea of maximization of 
 Below is the pseudocode I relied on for the implementation...
 
 first pass through the transaction table to perform the initial split
+
 ![phase 1](https://github.com/LinoVelardita/CLOPE_Python_Implementation/assets/102514924/8fdf30d1-851c-4f1c-83cf-02e2612628ea)
 
 After that, there are additional table scans required to improve the clustering quality and optimize the cost function. If there are no changes in the current pass through the table, the algorithm stop
+
 ![phase 2](https://github.com/LinoVelardita/CLOPE_Python_Implementation/assets/102514924/979afb03-da58-4923-921f-904bad491d7c)
 
-Instead of the classic Profit function, it was used the DeltaAdd function, that returns the difference (in terms of Profit) of the clusters with and without the transaction t. This is possible thanks to the following theorem: 
-If DeltaAdd(Ci,t) is the maximum, then movement t to the cluster maximizes Profit(C,r).
+Instead of the classic Profit function, it was used the DeltaAdd function, that returns the difference (in terms of Profit) of the clusters with and without the transaction t. This is possible thanks to the following theorem: If DeltaAdd(Ci,t) is the maximum, then movement t to the cluster maximizes Profit(C,r).
+
 ![deltaAdd](https://github.com/LinoVelardita/CLOPE_Python_Implementation/assets/102514924/086db9a5-30df-4c2a-afab-2d8d6da52d53)
 
 
