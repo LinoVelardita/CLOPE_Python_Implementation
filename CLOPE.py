@@ -4,6 +4,10 @@ import numpy as np
 from collections import Counter
 from collections import defaultdict
 
+# df -> transactional dataset
+# k -> number of clusters
+# r -> repulsion coefficient
+# real_label -> nome of the column in df that contains the class target (necessary to obtain the purity measure)
 def CLOPE(df, k, r, real_label="missing!"):
     
     #whatever is passed the column of the class
